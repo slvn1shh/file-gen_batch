@@ -26,23 +26,23 @@ cls
 echo Select again, pls!
 goto drive )
 
- 
- 
+
 :path
 echo.
-set /p _path= Set pathname: (eg. Folder or Folder\AnotherOne) [leave this field blank to use root catalog] - 
+set /p _path= Set pathname: (eg. Folder or Folder\AnotherOne) [leave this field blank to use root catalog] -
 if "%_path%" == "" (
 echo Ok, using root directory )
 echo.
 
 
 :name
-set /p _name=Set filename: (eg text.txt) - 
+set /p _name=Set filename: (eg text.txt) -
 if "%_name%" == "" ( goto name )
 echo.
 
 :size
-set /p _size=Set filesize: (in bytes) - 
+set /p _size=Set filesize: (in bytes) -
+if "%_size%" == "" ( set %_size% = 128 )
 echo.
 
 :create
