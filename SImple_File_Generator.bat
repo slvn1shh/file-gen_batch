@@ -9,7 +9,7 @@ color 02
 
 echo.
 echo.
-
+echo.-
 
 :drive
 set /p _drive=Set drive you want to use: (C/D/Other) - 
