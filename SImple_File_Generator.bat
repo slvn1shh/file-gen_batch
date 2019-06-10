@@ -10,7 +10,6 @@ color 02
 echo.
 echo.
 
-
 :drive
 set /p _drive=Set drive you want to use: (C/D/Other) -
 if exist %_drive%: (
@@ -26,6 +25,8 @@ cls
 echo Select again, pls!
 goto drive )
 
+:inner
+echo Ignore that! aloooo
 
 :path
 echo.
