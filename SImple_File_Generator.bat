@@ -1,10 +1,12 @@
 @echo off
 rem @echo off
 
-
 setlocal enabledelayedexpansion
 
-@echo Run this as you want, but to create in win directories, run this as admin
+@echo Run this as you want, 
+@echo but to create in win directories 
+@echo or in root catalogs
+@echo run this as admin
 color 02
 
 echo.
@@ -17,8 +19,8 @@ echo Ok, Current mount catalog is -
 cd %_drive%:
 goto path )
 if "%_drive%" == "" ( rem if "%_drive%" == "C" goto path
-set "%_drive%" = "C"
-echo Using default drive C
+set "%_drive%" = "D"
+echo Using default drive D
 goto path )
 if not exist %_drive%: (
 cls
@@ -27,6 +29,7 @@ goto drive )
 
 :inner
 echo Ignore that!
+goto path
 
 :path
 echo.
@@ -35,10 +38,9 @@ if "%_path%" == "" (
 echo Ok, using root directory )
 echo.
 
-
 :name
-set /p _name=Set filename: (eg text.txt) -
-if "%_name%" == "" ( goto name )
+set /p _name=Set filename: (eg. text.txt) -
+if "%_name%" == "" ( set %_name% = testfile.txt )
 echo.
 
 :size
@@ -55,11 +57,10 @@ echo.
 if "%_path%" == "" ( set _full= %_drive%:\%_name%
 ) else ( set _full= %_drive%:\%_path%\%_name% )
 
-
-IF NOT EXIST %_full% mkdir %_drive%:\%_path%
+IF NOT EXIST %_drive%:\%_path% mkdir %_drive%:\%_path%
 rem If file is already exist, delete them
 if exist %_full% (
-echo removing old one.. 
+echo removing old one..
 del /f %_full% )
 
 fsutil file createnew %_full% %_size%
