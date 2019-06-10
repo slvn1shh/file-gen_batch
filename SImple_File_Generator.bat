@@ -26,7 +26,7 @@ echo Select again, pls!
 goto drive )
 
 :inner
-echo Ignore that! aloooo
+echo Ignore that!
 
 :path
 echo.
