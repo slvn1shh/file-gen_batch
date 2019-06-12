@@ -40,12 +40,12 @@ echo.
 
 :name
 set /p _name=Set filename: (eg. text.txt) -
-if "%_name%" == "" ( set %_name% = testfile.txt )
+if "%_name%" == "" ( set "%_name%" = "testfile.txt" )
 echo.
 
 :size
 set /p _size=Set filesize: (in bytes) -
-if "%_size%" == "" ( set %_size% = 128 )
+if "%_size%" == "" ( set "%_size%" = "128" )
 echo.
 
 :create
